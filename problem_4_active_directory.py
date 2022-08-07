@@ -55,3 +55,5 @@ def is_user_in_group(user, group):
 print(is_user_in_group(sub_child_user, child))   # True
 print(is_user_in_group(sub_child_user, parent))  # True
 print(is_user_in_group("Some User", sub_child))  # False
+print(is_user_in_group("child", child))  # False
+print(is_user_in_group("", child))  # False
