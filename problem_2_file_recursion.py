@@ -40,7 +40,11 @@ def find_files(suffix, path):
 
 print(find_files(".c", "testdir"))
 
+print(find_files("", "testdir"))
 
+print(find_files(".x", "testdir"))
+
+print(find_files(".c", "./udacity"))
 
 
 
