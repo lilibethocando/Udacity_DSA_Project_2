@@ -52,9 +52,15 @@ def union(llist_1, llist_2):
             current = current.next
     if llist_2.head is not None:
         current = llist_2.head
+
         while current:
             union_set.add(current.value)
             current = current.next
+
+    if len(union_set) == 0:
+        msg = "Union set is empty!"
+        return msg
+
     for node in sorted(list(union_set)):
         union_list.append(node)
     return union_list
@@ -79,8 +85,10 @@ def intersection(llist_1, llist_2):
             current = current.next
 
     intersection_set = llist_1_set & llist_2_set
-    if not intersection_set:
-        print("No intersection node was found between the 2 lists provided")
+
+    if len(intersection_set) == 0:
+        msg = "Intersection set is empty!"
+        return msg
 
     for node in sorted(list(intersection_set)):
         intersection_list.append(node)
@@ -88,7 +96,7 @@ def intersection(llist_1, llist_2):
     return intersection_list
 
 
-# Test case 1
+print("Test case 1")
 
 linked_list_1 = LinkedList()
 linked_list_2 = LinkedList()
@@ -105,7 +113,7 @@ for i in element_2:
 print(union(linked_list_1,linked_list_2)) # Returns: 1 -> 2 -> 3 -> 4 -> 6 -> 9 -> 11 -> 21 -> 32 -> 35 -> 65 ->
 print(intersection(linked_list_1,linked_list_2)) # Returns: 4 -> 6 -> 21 ->
 
-# Test case 2
+print("Test case 2")
 
 linked_list_3 = LinkedList()
 linked_list_4 = LinkedList()
@@ -120,9 +128,9 @@ for i in element_2:
     linked_list_4.append(i)
 
 print(union(linked_list_3,linked_list_4)) # Returns: 1 -> 2 -> 3 -> 4 -> 6 -> 7 -> 8 -> 9 -> 11 -> 21 -> 23 -> 35 -> 65 ->
-print(intersection(linked_list_3,linked_list_4)) # Returns: No intersection node was found between the 2 lists provided
+print(intersection(linked_list_3,linked_list_4)) # Returns: Intersection set is empty!
 
-# Test case 3
+print("Test case 3")
 
 linked_list_5 = LinkedList()
 linked_list_6 = LinkedList()
@@ -137,9 +145,9 @@ for i in element_2:
     linked_list_6.append(i)
 
 print(union(linked_list_5, linked_list_6)) # Returns: 1 -> 4 -> 6 -> 7 -> 8 -> 9 -> 45 -> 51 ->
-print(intersection(linked_list_5, linked_list_6)) # Returns: No intersection node was found between the 2 lists provided
+print(intersection(linked_list_5, linked_list_6)) # Returns: Intersection set is empty!
 
-# Test case 4
+print("Test case 4")
 
 linked_list_7 = LinkedList()
 linked_list_8 = LinkedList()
@@ -155,3 +163,21 @@ for i in element_2:
 
 print(union(linked_list_7, linked_list_8)) # Returns: 1 -> 2 -> 3 -> 5 -> 6 -> 8 -> 9 -> 11 -> 21 -> 22 -> 47 -> 52 ->
 print(intersection(linked_list_7, linked_list_8)) # Returns: 3 -> 5 -> 6 -> 8 -> 9 -> 21 ->
+
+
+print("Test case 5")
+
+linked_list_9 = LinkedList()
+linked_list_10 = LinkedList()
+
+element_1 = []
+element_2 = []
+
+for i in element_1:
+    linked_list_9.append(i)
+
+for i in element_2:
+    linked_list_10.append(i)
+
+print(union(linked_list_9, linked_list_10)) # Returns: Union set is empty!
+print(intersection(linked_list_9, linked_list_10)) # Returns: Intersection set is empty!
