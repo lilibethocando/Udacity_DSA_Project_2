@@ -72,3 +72,19 @@ our_cache.set(6, 6)
 
 print(our_cache.get(3))     # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
+
+our_cache = LRUCache(2)
+our_cache.set(1, 1)
+our_cache.set(1, 8)
+our_cache.set(2, 2)
+print(our_cache.get(1))  # returns 8
+print(our_cache.get(2))  # returns 2
+our_cache.set(3, 3)
+print(our_cache.get(3))  # returns 3
+print(our_cache.get(1))  # returns -1
+
+
+our_cache = LRUCache(0)
+our_cache.set(1, 1)
+
+print(our_cache.get(1))
