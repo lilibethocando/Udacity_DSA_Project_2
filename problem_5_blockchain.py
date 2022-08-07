@@ -21,14 +21,21 @@ class Block:
         sha.update(hash_str)  # sha is the hash of the data
         return sha.hexdigest()
 
+    def __repr__(self):
+        return str(self.data)
+
 
 class LinkedList:
     def __init__(self):
         self.head = None
 
     def append(self, data):
+        if data == "":
+            return
+
         if self.head is None:
             self.head = Block(data, 0)
+
         else:
             current = self.head
             while current.next:
@@ -50,5 +57,11 @@ llist = LinkedList()
 llist.append("First Block")  # First Block is added to the linked list
 llist.append("Second Block")  # Second Block is added to the linked list
 llist.append("Third Block")  # Third Block is added to the linked list
+llist.print_list()
+
+llist.append("") # Adding empty string, it just returns
+llist.print_list()
+
+llist.append("Fourth Block") # Fourth Block is added to the linked list
 llist.print_list()
 
